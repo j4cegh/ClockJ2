@@ -1,2 +1,2 @@
 backgroundColor:#171717
-clockTextColor:#FFFAFA
+clockTextColor:#BFBBFB

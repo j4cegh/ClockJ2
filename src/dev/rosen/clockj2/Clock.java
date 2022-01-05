@@ -15,7 +15,7 @@ public class Clock extends JFrame {
     private void FrameSettings()
     {
         frameHelper = new FrameHelper(_clock);
-        frameHelper.SetBGHex(Settings.backgroundColor);
+        frameHelper.SetBGHex(Settings.getOptionValue("backgroundColor", Settings.defaultBackgroundColor));
         frameHelper.MaxFullScreen();
         frameHelper.UndecoratedWindowStyle();
         frameHelper.SetOnClose();
@@ -25,7 +25,7 @@ public class Clock extends JFrame {
         timeLabel = new JLabel("", SwingConstants.CENTER);
         clockLogic = new ClockLogic(timeLabel, _clock);
         timeLabel.setFont(new Font("Verdana", Font.BOLD, 250));
-        frameHelper.SetJCColHex(timeLabel, Settings.clockTextColor);
+        frameHelper.SetJCColHex(timeLabel, Settings.getOptionValue("clockTextColor", Settings.defaultClockTextColor));
 
         _clock.add(timeLabel);
         clockLogic.Handle();
@@ -33,11 +33,6 @@ public class Clock extends JFrame {
 
     public void Create()
     {
-        Settings.settings.put("a", "b");
-        for(String i : Settings.settings.keySet())
-        {
-            System.out.println(i);
-        }
         _clock = new JFrame("ClockJ2 - A complete rewrite");
         FrameSettings();
         InitControls();
