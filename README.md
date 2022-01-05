@@ -12,6 +12,6 @@ To build this, you need to:
 * Install <a href="https://www.jetbrains.com/idea/download/#section=windows">Intellij Idea Community Edition</a>
 * Import the project
 * And, run! (assuming everything is downloaded correctly.)
-## OR (<text style="color:red;">not recommended!</text>)
+## OR (not recommended!)
 If you know what you're doing, you can also create your own project for this app
 with the code provided. 
