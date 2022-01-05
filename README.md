@@ -1,6 +1,6 @@
 # ClockJ2
 A working semi-customizable clock made completely in Java!
-
+<br><br><img src="https://i.imgur.com/51VKR4e.png"></img>
 # Building
 Since I have no idea if there's gonna be any binaries <strong>ever</strong>,
 it's safe to assume people who are looking forward to this want to compile it.
