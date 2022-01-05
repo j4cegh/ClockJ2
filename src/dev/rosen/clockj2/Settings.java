@@ -31,21 +31,33 @@ public class Settings {
             settings.put("backgroundColor", defaultBackgroundColor);
             settings.put("clockTextColor", defaultClockTextColor);
             settings.put("seconds", "false");
+            String optionsString = "";
+            Integer settingsIteration = 0;
+            for (Map.Entry<String, String> entry: settings.entrySet()) {
+                settingsIteration += 1;
+                optionsString += entry.getKey() + ":" + entry.getValue() + (!(settingsIteration == settings.keySet().size()) ? "\n" : "");
+            }
             writer.write(
-                    "backgroundColor:" + defaultBackgroundColor +
-                            "\n" +
-                            "clockTextColor:" + defaultClockTextColor + "\n" +
-                            "seconds:false"
+                    optionsString
             );
             writer.close();
         }
         else {
+
             String data = readFileAsString(settingsFileName);
             for (String i: data.split("\n")) {
-                String setting = i.split(":")[0];
-                String value = i.split(":")[1];
-                System.out.println(setting + " " + value);
-                settings.put(setting, value);
+                try {
+                    String setting = i.split(":")[0];
+                    String value = i.split(":")[1];
+                    System.out.println(setting + " " + value);
+                    settings.put(setting, value);
+                } catch(Exception e) {
+                    File file = new File("clocksettings.txt");
+                    file.delete();
+                    System.out.println("Restart your ClockJ2.");
+                    System.exit(0);
+                }
+
             }
 
         }
