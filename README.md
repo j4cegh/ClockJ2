@@ -1,9 +1,3 @@
-<script>
-console.log("hello");
-</script>
-<style>
-
-</style>
 # ClockJ2
 A working semi-customizable clock made completely in Java!
 <br><br><img src="https://i.imgur.com/51VKR4e.png"></img>
