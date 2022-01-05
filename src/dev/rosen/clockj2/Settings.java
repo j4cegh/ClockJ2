@@ -30,10 +30,12 @@ public class Settings {
             // Set the defaults
             settings.put("backgroundColor", defaultBackgroundColor);
             settings.put("clockTextColor", defaultClockTextColor);
+            settings.put("seconds", "false");
             writer.write(
                     "backgroundColor:" + defaultBackgroundColor +
                             "\n" +
-                            "clockTextColor:" + defaultClockTextColor
+                            "clockTextColor:" + defaultClockTextColor + "\n" +
+                            "seconds:false"
             );
             writer.close();
         }
@@ -42,15 +44,26 @@ public class Settings {
             for (String i: data.split("\n")) {
                 String setting = i.split(":")[0];
                 String value = i.split(":")[1];
+                System.out.println(setting + " " + value);
                 settings.put(setting, value);
             }
 
         }
     }
-    public static String getOptionValue(String option, String _default)
+    public static String getOptionStringValue(String option, String _default)
     {
         if (settings.get(option) != null) {
             return settings.get(option);
+        }
+        else {
+            return _default;
+        }
+    }
+    public static Boolean getOptionBoolValue(String option, Boolean _default)
+    {
+        if (settings.get(option) != null)
+        {
+            return Boolean.parseBoolean(settings.get(option));
         }
         else {
             return _default;

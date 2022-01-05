@@ -7,7 +7,6 @@ import java.util.GregorianCalendar;
 public class ClockLogic {
     static JLabel _timeLbl;
     static JFrame _frame;
-    static Preferences _prefs;
 
     public ClockLogic(JLabel label, JFrame frame)
     {
@@ -17,7 +16,6 @@ public class ClockLogic {
 
     public static void Handle()
     {
-
         new Thread(() -> {
             while(true)
             {
@@ -29,7 +27,7 @@ public class ClockLogic {
                 String time = String.format("%02d", hour) +
                         ":" +
                         String.format("%02d", min) +
-                        (Preferences.withSeconds ? ":" + String.format("%02d", sec) : "");
+                        (Settings.getOptionBoolValue("seconds", false) ? ":" + String.format("%02d", sec) : "");
 
                 _timeLbl.setText(time);
                 try {
