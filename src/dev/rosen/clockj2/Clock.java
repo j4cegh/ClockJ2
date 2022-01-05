@@ -23,6 +23,7 @@ public class Clock extends JFrame {
         clockLogic = new ClockLogic(timeLabel, _clock);
         timeLabel.setFont(new Font("Verdana", Font.BOLD, 250));
         frameHelper.SetJCColHex(timeLabel, Settings.clockTextColor);
+        
         _clock.add(timeLabel);
         clockLogic.Handle();
     }
