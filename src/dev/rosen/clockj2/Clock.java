@@ -2,8 +2,6 @@ package dev.rosen.clockj2;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 public class Clock extends JFrame {
     JFrame _clock; // Window frame
