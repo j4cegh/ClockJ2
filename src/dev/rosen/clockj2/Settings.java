@@ -49,10 +49,9 @@ public class Settings {
                 try {
                     String setting = i.split(":")[0];
                     String value = i.split(":")[1];
-                    System.out.println(setting + " " + value);
                     settings.put(setting, value);
                 } catch(Exception e) {
-                    File file = new File("clocksettings.txt");
+                    File file = new File(Settings.settingsFileName);
                     file.delete();
                     System.out.println("Restart your ClockJ2.");
                     System.exit(0);
