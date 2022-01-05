@@ -17,6 +17,12 @@ public class FrameHelper {
     {
         _frame = frame;
     }
+
+    /**
+     * Self-explanatory, takes hex and returns Color
+     * @param hex Hex string
+     * @return Color
+     */
     private Color HexToColor(String hex) { return Color.decode(hex); }
     /**
      * Set the background's color to a hex provided as a parameter.
@@ -45,7 +51,7 @@ public class FrameHelper {
     }
 
     /**
-     * Remove the frame's decorations, works good with custom decorations or <strong>MaxFullScreen()</strong>.
+     * Remove the frame's decorations, works good with custom decorations or <code><strong>MaxFullScreen()</strong></code>.
      */
     public void UndecoratedWindowStyle()
     {
