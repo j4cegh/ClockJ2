@@ -16,10 +16,11 @@ public class Settings {
         {
             settingsFile.createNewFile();
             FileWriter writer = new FileWriter("clocksettings.txt");
+            // Set the defaults
             writer.write(
-                    "backgroundColor:#171717" +
+                    "backgroundColor:" + backgroundColor +
                             "\n" +
-                            "clockTextColor:#FFFAFA"
+                            "clockTextColor:" + clockTextColor
             );
             writer.close();
         }
