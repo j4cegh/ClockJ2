@@ -10,7 +10,7 @@ public class Settings {
     public static String defaultBackgroundColor = "#171717";
     public static String defaultClockTextColor = "#FFFAFA";
     private static String settingsFileName = "clocksettings.txt";
-    public static Map<String, String> settings = new HashMap<String, String>();
+    public static Map<String, String> settings = new HashMap<>();
     public static String readFileAsString(String fileName) throws Exception
     {
         String data = "";
