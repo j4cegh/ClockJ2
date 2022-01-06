@@ -26,10 +26,12 @@ public class Settings {
             FileWriter writer = new FileWriter(settingsFileName);
 
             // Set the defaults
+            String defaultComments = "# Welcome to ClockJ2!" + "\n" +
+                    "# If you want to configure it, please change one of the values below! :)\n\n";
             settings.put("backgroundColor", defaultBackgroundColor);
             settings.put("clockTextColor", defaultClockTextColor);
             settings.put("seconds", "false");
-            String optionsString = "";
+            String optionsString = defaultComments;
             Integer settingsIteration = 0;
             for (Map.Entry<String, String> entry: settings.entrySet()) {
                 settingsIteration += 1;
@@ -44,16 +46,21 @@ public class Settings {
 
             String data = readFileAsString(settingsFileName);
             for (String i: data.split("\n")) {
+                // skips to next iteration when there's a comment
+                if (i.startsWith("#"))
+                    continue;
+
                 try {
                     String setting = i.split(":")[0];
                     String value = i.split(":")[1];
                     settings.put(setting, value);
-                } catch(Exception e) {
+                } catch (Exception e) {
                     File file = new File(Settings.settingsFileName);
                     file.delete();
-                    System.out.println("Restart your ClockJ2.");
+                    System.out.println("Config flushed. Restart your ClockJ2.");
                     System.exit(0);
                 }
+
 
             }
 
